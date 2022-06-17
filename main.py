@@ -1,5 +1,6 @@
 #data
 import os
+import time
 import random
 wordlist = ['informatica', 'informatiekunde', 'spelletje', 'aardigheidje', 'scholier', 'fotografie', 'waardebepaling', 'specialiteit', 'verzekering', 'universiteit', 'heesterperk']
 goed = [] 
@@ -27,16 +28,12 @@ def printword():
       
 def systemclear():
    os.system("clear")
-
-
-
   
 #code voor input
 while True:
   answer = input()
   controle = word.find(answer)
   
-
   if answer in goed:
     print ("je hebt deze letter al gegokt, probeer het opnieuw")
 
@@ -58,15 +55,19 @@ while True:
     goed.append(answer)
     print(str(answer) + " zat in het woord.") 
     printword()
-  
+
   if pogingen == 0:
     print("Geen pogingen meer, je hebt verloren") 
     break
-    
+  if len(goed) == len(word):
+    break
   print("je hebt nog " + str(pogingen) + " pogingen over")
 
 print("wil je nog een keer spelen? y/n")
 if input() == "y":
-  print("ja")
+ os.system('clear')
 else:
   print("bedankt voor het spelen")
+  time.sleep(3)
+  os.system('clear')
+ 
